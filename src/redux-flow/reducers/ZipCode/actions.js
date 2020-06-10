@@ -1,0 +1,1 @@
+export const UPDATE_ADRESS = 'zipcode:UPDATE_ADRESS';
