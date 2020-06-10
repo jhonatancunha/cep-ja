@@ -12,22 +12,29 @@ class Search extends PureComponent {
     bairro: '',
     localidade: '',
     uf: '',
+    erro: false,
     isLoading: false,
   };
 
    handleSubmit = async (e) => {
     e.preventDefault();
-    try{
-      this.setState({ isLoading: true })
-      
-      const cep = e.target.cep.value;
-      const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
-      
-      this.setState({ isLoading: false })
-      this.setState(response.data);
-    }catch(err) {
-      console.log(err);
+    const cepValue = e.target.cep.value.length;
+
+    if(cepValue !== 8){
+      this.setState({erro: true});
+      return;
     }
+    
+    this.setState({ isLoading: true })
+    try{
+      const cep = cepValue;
+      const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+      this.setState(response.data);
+      
+    }catch(err) {
+      this.setState({erro: true});
+    }
+    this.setState({ isLoading: false })
   }
 
   render() {
