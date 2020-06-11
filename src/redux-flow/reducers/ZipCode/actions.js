@@ -1,1 +1,1 @@
-export const UPDATE_ADRESS = 'zipcode:UPDATE_ADRESS';
+export const UPDATE_ADDRESS = 'zipcode:UPDATE_ADDRESS';

@@ -6,13 +6,19 @@ import * as serviceWorker from './serviceWorker';
 // CONFIGURANDO REDUX
 import { createStore } from 'redux'
 import { Provider } from'react-redux'
+import reducer from './redux-flow/reducers'
 
+const store = createStore(reducer);
+
+store.subscribe(() => 
+  console.log('store', store.getState())
+)
 
 ReactDOM.render(
   <React.StrictMode>
-
+    <Provider store={store}>
       <App />
-
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

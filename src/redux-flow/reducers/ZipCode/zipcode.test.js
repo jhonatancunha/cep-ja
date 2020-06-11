@@ -4,9 +4,9 @@ import React from 'react'
 import adress from './index'
 
 // ACTIONS
-import {UPDATE_ADRESS} from './actions'
+import {UPDATE_ADDRESS} from './actions'
 
-it('should action UPDATE_ADRESS update adress', () => {
+it('should action UPDATE_ADDRESS update adress', () => {
   const before = deepfreeze({
     cep: '',
     logradouro: '',
@@ -18,7 +18,7 @@ it('should action UPDATE_ADRESS update adress', () => {
   });
 
   const action = deepfreeze({
-    type: UPDATE_ADRESS,
+    type: UPDATE_ADDRESS,
     payload: {
       cep: '87208-094',
       logradouro: 'Rua Tijuco',

@@ -1,26 +1,24 @@
 import React, { PureComponent } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux' 
 
 // COMPONENTS
 import SearchCEP from '../Content';
 
+// ACTIONS CREATORS
+import { updateAddress } from '../../redux-flow/reducers/ZipCode/action-creator'
+
 class Search extends PureComponent {
   state = {
-    cep: '',
-    logradouro: '',
-    complemento: '',
-    bairro: '',
-    localidade: '',
-    uf: '',
-    erro: false,
     isLoading: false,
+    erro: false,
   };
 
    handleSubmit = async (e) => {
     e.preventDefault();
-    const cepValue = e.target.cep.value.length;
+    const cepValue = e.target.cep.value;
 
-    if(cepValue !== 8){
+    if(cepValue.length !== 8){
       this.setState({erro: true});
       return;
     }
@@ -28,8 +26,9 @@ class Search extends PureComponent {
     this.setState({ isLoading: true })
     try{
       const cep = cepValue;
+      console.log(cep)
       const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
-      this.setState(response.data);
+      this.props.dispatch(updateAddress(response.data));
       
     }catch(err) {
       this.setState({erro: true});
@@ -39,9 +38,17 @@ class Search extends PureComponent {
 
   render() {
     return (
-      <SearchCEP handleSubmit={this.handleSubmit} {...this.state} />
+      <SearchCEP 
+        {...this.state} 
+        {...this.props.address}
+        handleSubmit={this.handleSubmit} 
+        />
     )
   }
 }
 
-export default Search;
+const mapStateToProps = (state) => ({
+  address: state.address
+})
+
+export default connect(mapStateToProps)(Search);
