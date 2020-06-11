@@ -14,7 +14,7 @@ class Search extends PureComponent {
     erro: false,
   };
 
-   handleSubmit = async (e) => {
+  handleSubmit = async (e) => {
     e.preventDefault();
     const cepValue = e.target.cep.value;
 
@@ -26,10 +26,9 @@ class Search extends PureComponent {
     this.setState({ isLoading: true })
     try{
       const cep = cepValue;
-      console.log(cep)
       const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
-      this.props.dispatch(updateAddress(response.data));
-      
+      this.props.setAddress(response.data);
+
     }catch(err) {
       this.setState({erro: true});
     }
@@ -51,4 +50,8 @@ const mapStateToProps = (state) => ({
   address: state.address
 })
 
-export default connect(mapStateToProps)(Search);
+const mapDispatchToProps = (dispatch) => ({
+  setAddress: (data) => dispatch(updateAddress(data))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search);

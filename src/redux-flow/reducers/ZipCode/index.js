@@ -3,14 +3,13 @@ import createReducer from '../createReducer'
 // ACTIONS
 import { UPDATE_ADDRESS } from './actions'
 
-const initialState = {
+export const initialState = {
   cep: '',
   logradouro: '',
   complemento: '',
   bairro: '',
   localidade: '',
   uf: '',
-  erro: false,
 }
 
 const ZipCode = createReducer(initialState, {

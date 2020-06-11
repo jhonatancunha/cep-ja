@@ -4,11 +4,21 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 // CONFIGURANDO REDUX
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import { Provider } from'react-redux'
 import reducer from './redux-flow/reducers'
 
-const store = createStore(reducer);
+const logger = ({ dispatch, getState }) => (next) => (action) => {
+  console.log("LOGGER: will dispatch: ", action);
+  
+  const nextAction = next(action);
+  console.log('LOOGER: next disptach: ', nextAction);
+  return nextAction;
+}
+  
+
+
+const store = createStore(reducer, applyMiddleware(logger));
 
 store.subscribe(() => 
   console.log('store', store.getState())
