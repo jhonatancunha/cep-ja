@@ -6,10 +6,6 @@ import adress from './index'
 // ACTIONS
 import {UPDATE_ADRESS} from './actions'
 
-it('adress should be a function', () => {
-  expect(adress).to.be.a('function');
-});
-
 it('should action UPDATE_ADRESS update adress', () => {
   const before = deepfreeze({
     cep: '',
