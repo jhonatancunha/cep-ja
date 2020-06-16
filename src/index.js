@@ -4,25 +4,10 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 // CONFIGURANDO REDUX
-import { createStore, applyMiddleware } from 'redux'
 import { Provider } from'react-redux'
-import reducer from './redux-flow/reducers'
+import configureStore from './redux-flow/configure-store'
 
-const logger = ({ dispatch, getState }) => (next) => (action) => {
-  console.log("LOGGER: will dispatch: ", action);
-  
-  const nextAction = next(action);
-  console.log('LOOGER: next disptach: ', nextAction);
-  return nextAction;
-}
-  
-
-
-const store = createStore(reducer, applyMiddleware(logger));
-
-store.subscribe(() => 
-  console.log('store', store.getState())
-)
+const store = configureStore();
 
 ReactDOM.render(
   <React.StrictMode>
