@@ -1,7 +1,7 @@
 import createReducer from '../createReducer'
 
 // ACTIONS
-import { UPDATE_ADDRESS } from './actions'
+import { LOADING, SUCESS } from './actions'
 
 export const initialState = {
   cep: '',
@@ -10,10 +10,18 @@ export const initialState = {
   bairro: '',
   localidade: '',
   uf: '',
+  isLoading: false
 }
 
 const ZipCode = createReducer(initialState, {
-  [UPDATE_ADDRESS]: (state, action) => action.payload
+  [LOADING]: (state, action) => ({
+    ...state,
+    isLoading: true
+  }),
+  [SUCESS]: (state, action) => ({
+    ...action.payload,
+    isLoading: false
+  })
 });
 
 export default ZipCode;

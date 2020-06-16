@@ -1,1 +1,2 @@
-export const UPDATE_ADDRESS = 'zipcode:UPDATE_ADDRESS';
+export const SUCESS = 'zipcode:SUCESS';
+export const LOADING = 'zicode:LOADING'

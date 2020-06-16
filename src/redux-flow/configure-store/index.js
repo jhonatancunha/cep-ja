@@ -1,19 +1,14 @@
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
 import reducer from '../reducers'
 import thunk from 'redux-thunk'
 
-const logger = ({ dispatch, getState }) => (next) => (action) => {
-  console.group(`LOGGER -> ${action.type}`)
-  console.log("will dispatch: ", action);
-  console.log('store', getState())
-  const nextAction = next(action);
-  console.log('next store', getState())
-  console.groupEnd(`LOGGER -> ${action.type}`)
-  return nextAction;
-}
-
+const logger = () => window.__REDUX_DEVTOOLS_EXTENSION__ 
+  ? window.__REDUX_DEVTOOLS_EXTENSION__() 
+  : (notfound) => notfound
 
 export default ({ initialState } = {}) => {
-  const store = createStore(reducer, initialState, applyMiddleware(logger,thunk));
+  const enhancer = compose( applyMiddleware(thunk), logger() )
+
+  const store = createStore(reducer, initialState, enhancer);
   return store;
 }
