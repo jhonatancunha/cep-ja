@@ -5,22 +5,33 @@ import { LOADING, SUCESS } from './actions'
 
 export const initialState = {
   cep: '',
-  logradouro: '',
-  complemento: '',
   bairro: '',
-  localidade: '',
-  uf: '',
-  isLoading: false
+  cidade: {
+    ddd: '',
+    ibge: '',
+    nome: '',
+  },
+  complemento: '',
+  estado: {
+    sigla: ''
+  },
+  latitude: 0,
+  longitude: 0,
+  logradouro: '',
+  isLoading: false,
+  map: false
 }
 
 const ZipCode = createReducer(initialState, {
   [LOADING]: (state, action) => ({
     ...state,
-    isLoading: true
+    isLoading: true,
+    map: false
   }),
   [SUCESS]: (state, action) => ({
     ...action.payload,
-    isLoading: false
+    isLoading: false,
+    map: true
   })
 });
 

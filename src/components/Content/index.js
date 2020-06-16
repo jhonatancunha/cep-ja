@@ -6,11 +6,15 @@ const Search = ({
   logradouro,
   complemento,
   bairro,
-  localidade,
-  uf,
+  estado,
+  cidade,
   erro,
   handleSubmit,
-  isLoading
+  latitude,
+  longitude,
+  altitude,
+  isLoading,
+  map
 }) => (
   <div>
     <form onSubmit={handleSubmit}>
@@ -43,16 +47,20 @@ const Search = ({
             <td>{cep}</td>
             <td>{logradouro + ' ' + complemento}</td>
             <td>{bairro}</td>
-            <td>{localidade}</td>
-            <td>{uf}</td>
+            <td>{cidade.nome}</td>
+            <td>{estado.sigla}</td>
           </tr>
         </tbody>
       </table>
     }
 
     {erro && <div>CEP não encontrado.</div>}
-    <Map />
-  </div>
+    
+    {map && 
+     <Map latitude={Number(latitude)} longitude={Number(longitude)} altitude={Number(altitude)}/>
+    }
+    
+      </div>
 );
 
 export default Search;
