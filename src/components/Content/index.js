@@ -1,4 +1,5 @@
 import React from 'react';
+import Map from '../Maps'
 
 const Search = ({
   cep,
@@ -50,6 +51,7 @@ const Search = ({
     }
 
     {erro && <div>CEP não encontrado.</div>}
+    <Map />
   </div>
 );
 
