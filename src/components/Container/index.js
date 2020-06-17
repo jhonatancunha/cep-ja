@@ -7,12 +7,21 @@ import SearchCEP from '../Content';
 // ACTIONS CREATORS
 import { fetchAddress } from '../../redux-flow/reducers/ZipCode/action-creator'
 
+//IMGS
+import {ReactComponent as Logo} from '../../assets/cepja.svg'
+
+// STYLE
+import {Wrapper} from './style'
+
 const Search  = ({ address, handleSubmit }) => {
   return (
-    <SearchCEP 
-      {...address}
-      handleSubmit={handleSubmit} 
-      />
+    <Wrapper>
+      <Logo className="logoSvg" />
+      <SearchCEP 
+        {...address}
+        handleSubmit={handleSubmit} 
+        />
+    </Wrapper>
   )
 }
 

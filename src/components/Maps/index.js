@@ -7,8 +7,8 @@ const Map = ({longitude, latitude, altitude}) => {
     latitude,
     longitude,
     altitude,
-    width: '300px',
-    height: '300px',
+    width: '100vw',
+    height: '100vh',
     zoom: 16
   })
 
