@@ -3,13 +3,13 @@ import { connect } from 'react-redux'
 
 // COMPONENTS
 import SearchCEP from '../Content';
+import Footer from '../Footer'
 
 // ACTIONS CREATORS
 import { fetchAddress, goInitialPage, openMap, goBack } from '../../redux-flow/reducers/ZipCode/action-creator'
 
-//IMGS
-import Illustration from '../../assets/illustration.svg'
-import {ReactComponent as Logo} from '../../assets/cepja.svg'
+import Illustration from '../../assets/illustration.svg';
+import {ReactComponent as Logo} from '../../assets/cepja.svg';
 
 // STYLE
 import { Wrapper, All } from './style'
@@ -28,6 +28,7 @@ const Search  = ({ address, handleSubmit, handleInitialPage, handleOpenMap, hand
           />
       </Wrapper>
       {!address.isMapOpen && <img src={Illustration} alt="CepJá!" />}
+      <Footer />
     </All>
   )
 }
@@ -39,6 +40,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   handleSubmit: (e) => {
     e.preventDefault();
+
     dispatch(fetchAddress(e.target.cep.value));
   },
   handleInitialPage: (e) => {

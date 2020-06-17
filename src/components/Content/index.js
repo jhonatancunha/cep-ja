@@ -4,9 +4,10 @@ import Map from '../Maps'
 // COMPONENTS
 import InputFindCep from '../InputFindCep'
 import CepTable from '../CepTable'
+import Loading from '../commom/Loading'
 
 // STYLES
-import { Wrapper, ButtonRed } from './style'
+import { Wrapper, ButtonRed, LoadDIV, Span } from './style'
 
 // ICONS
 import {ReactComponent as ArrowLeft} from '../../assets/arrow-left.svg'
@@ -28,8 +29,13 @@ const Search = ({
   <Wrapper>
     {!searchedZidCode && <InputFindCep handleSubmit={handleSubmit} isLoading={isLoading}  />}
 
-    {isLoading && <div>Carregando...</div>}
+    {isLoading && 
+    <LoadDIV>
+      <Span>Carregando</Span><Loading />
+    </LoadDIV>
+    }
     
+
     {searchedZidCode && !isMapOpen && <ButtonRed onClick={goInitialPage}>
       <ArrowLeft />
         BUSCAR OUTRO CEP
@@ -39,6 +45,12 @@ const Search = ({
 
     {erro && <div>CEP não encontrado.</div>}
     
+    {!mapisReady && searchedZidCode &&
+    <LoadDIV>
+      <Span>Carregando mapa</Span><Loading />
+    </LoadDIV>
+    }
+
     {searchedZidCode && !isMapOpen && mapisReady && 
       <ButtonRed onClick={handleOpenMap} >
         VER NO MAPA
@@ -46,7 +58,6 @@ const Search = ({
       </ButtonRed>
     }
     
-    {console.log(mapisReady)}
     {isMapOpen  &&
     <>
     <ButtonRed onClick={handleGoBack} isMapOpen={isMapOpen} >

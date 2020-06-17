@@ -16,6 +16,7 @@ export default ({handleSubmit, isLoading}) => (
         pattern="[0-9]{8}"
         placeholder="Digite aqui..."
         title="É permitido somente números e exatamente 8 dígitos"
+        required
         />
     </Wrapper>
 )

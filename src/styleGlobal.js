@@ -10,11 +10,21 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body{
-    background-color: #18181A;
-    background-image: url(/static/media/background-right.02f3df8f.svg);
-    background-position: right;
-    background-repeat: no-repeat;
     height: 100vh;
     width: 100vw;
+    background-color: #18181A;
+    background-repeat: no-repeat;
+
+    /* ONLY DESKTOP */
+    @media (min-width: 800px){
+      background-image: url(${props => props.EllipseDesktop});
+      background-position: right;
+    }
+    /* ONLY MOBILE */
+    @media (max-width: 799px){
+      background-image: url(${props => props.EllipseMobile});
+      background-position: bottom;
+    }
   }
+  
 `

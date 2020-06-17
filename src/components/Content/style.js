@@ -25,7 +25,7 @@ export const ButtonRed = styled.button`
     border-radius: 4px;
 
     /* MAP OPENED */
-    width: ${props => props.isMapOpen ? '55px' : '300px'};
+    width: ${props => props.isMapOpen ? '55px' : 'calc(100% + 110px)'};
     position: ${props => props.isMapOpen ? 'absolute' : ''};
     top: ${props => props.isMapOpen ? '50px' : '0'};
     left: ${props => props.isMapOpen ? '50px' : '0'};
@@ -33,5 +33,30 @@ export const ButtonRed = styled.button`
     svg{
       height: 20px;
     }
+
+    @media (hover: hover){
+      transition: all .2s ease-in-out;
+      :hover{
+        background: #F2F1F1;
+        color: #D42627;
+        border: 2px solid #D42627;
+      }
+
+      :hover svg path{
+        fill: #D42627;
+      }
+    }
   }
+`
+
+export const LoadDIV = styled.div`
+  display:flex;
+  justify-content: center;
+  margin: 20px;
+`
+
+export const Span = styled.span`
+  color: #F2F1F1;
+  font-size: 1.1em;
+  font-weight: bolder;
 `

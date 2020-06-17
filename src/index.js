@@ -9,7 +9,9 @@ import configureStore from './redux-flow/configure-store'
 
 // STYLE
 import {GlobalStyle} from './styleGlobal'
-import BackgroundImage from './assets/background-right.svg'
+import EllipseDesktop from './assets/background-right.svg';
+import EllipseMobile from './assets/elipsemobile.svg'
+
 
 const store = configureStore();
 
@@ -17,7 +19,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <App />
-      <GlobalStyle BackgroundImage={BackgroundImage} />
+      <GlobalStyle EllipseDesktop={EllipseDesktop} EllipseMobile={EllipseMobile} />
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
