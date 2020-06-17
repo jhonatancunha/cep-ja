@@ -10,8 +10,10 @@ const CepTable =  ({
   cep,
   bairro,
   complemento,
-  cidade,
-  estado
+  uf,
+  localidade,
+  ibge,
+  ddd
 }) => (
   <>
     { !erro &&
@@ -34,19 +36,19 @@ const CepTable =  ({
       </Paragraph>
       <Paragraph>
         <Span>CIDADE:</Span>
-        {cidade.nome}
+        {localidade}
       </Paragraph>
       <Paragraph>
         <Span>ESTADO:</Span>
-        {estado.sigla}
+        {uf}
       </Paragraph>
       <Paragraph>
         <Span>DDD:</Span>
-        {cidade.ddd}
+        {ddd}
       </Paragraph>
       <Paragraph>
         <Span>IBGE:</Span>
-        {cidade.ibge}
+        {ibge}
       </Paragraph>
     </Wrapper>
     }

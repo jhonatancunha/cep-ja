@@ -22,7 +22,8 @@ const Search = ({
   goInitialPage,
   handleOpenMap,
   isMapOpen,
-  handleGoBack
+  handleGoBack,
+  mapisReady
 }) => (
   <Wrapper>
     {!searchedZidCode && <InputFindCep handleSubmit={handleSubmit} isLoading={isLoading}  />}
@@ -38,16 +39,17 @@ const Search = ({
 
     {erro && <div>CEP não encontrado.</div>}
     
-    {searchedZidCode && !isMapOpen &&
+    {searchedZidCode && !isMapOpen && mapisReady && 
       <ButtonRed onClick={handleOpenMap} >
         VER NO MAPA
         <ArrowRight />
       </ButtonRed>
     }
     
-    {isMapOpen &&
+    {console.log(mapisReady)}
+    {isMapOpen  &&
     <>
-    <ButtonRed onClick={handleGoBack} isMapOpen={isMapOpen}>
+    <ButtonRed onClick={handleGoBack} isMapOpen={isMapOpen} >
       <ArrowLeft />
     </ButtonRed>
      <Map isMapOpen={isMapOpen} latitude={Number(latitude)} longitude={Number(longitude)} altitude={Number(altitude)}/>
