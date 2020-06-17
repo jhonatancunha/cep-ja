@@ -7,11 +7,12 @@ export const Wrapper = styled.div`
   }
 `
 
-export const GoBackHome = styled.button`
+export const ButtonRed = styled.button`
   @media (min-width: 800px){
     display: flex;
-    height: 50px;
+    justify-content: space-between;
     align-items: center;
+    height: 50px;
     cursor: pointer;
 
     background: #D42627;
@@ -26,7 +27,6 @@ export const GoBackHome = styled.button`
 
     svg{
       height: 20px;
-      margin-right: 20px;
     }
   }
 `

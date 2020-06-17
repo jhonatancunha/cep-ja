@@ -14,10 +14,11 @@ import {ReactComponent as Logo} from '../../assets/cepja.svg'
 // STYLE
 import { Wrapper, All } from './style'
 
-const Search  = ({ address, handleSubmit, handleInitialPage }) => {
+const Search  = ({ address, handleSubmit, handleInitialPage}) => {
   return (
     <All>
-      <Wrapper>
+    {console.log('searchedZidCode', address.searchedZidCode)}
+      <Wrapper isSearched={address.searchedZidCode} >
         <Logo className="logoSvg" />
         <SearchCEP 
           {...address}
@@ -31,7 +32,7 @@ const Search  = ({ address, handleSubmit, handleInitialPage }) => {
 }
 
 const mapStateToProps = (state) => ({
-  address: state.address
+  address: state.address,
 })
 
 const mapDispatchToProps = (dispatch) => ({

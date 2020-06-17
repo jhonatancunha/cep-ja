@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux' 
 
+// STYLES
+import { Wrapper, Paragraph, Span } from './style'
 
 const CepTable =  ({
   erro,
@@ -12,29 +14,42 @@ const CepTable =  ({
   estado
 }) => (
   <>
-    { !erro && 
-      <table>
-        <thead>
-          <tr>
-            <td>CEP</td>
-            <td>Endereço</td>
-            <td>Bairro</td>
-            <td>Cidade</td>
-            <td>Estado</td>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <td>{cep}</td>
-            <td>{logradouro + ' ' + complemento}</td>
-            <td>{bairro}</td>
-            <td>{cidade.nome}</td>
-            <td>{estado.sigla}</td>
-          </tr>
-        </tbody>
-        </table>
-      }
+    { !erro &&
+    <Wrapper>
+      <Paragraph>
+        <Span>CEP:</Span>
+        {cep}
+      </Paragraph>
+      <Paragraph>
+        <Span>LOGRADOURO:</Span>
+        {logradouro}
+      </Paragraph>
+      <Paragraph>
+        <Span>COMPLEMENTO:</Span>
+        {complemento}
+      </Paragraph>
+      <Paragraph>
+        <Span>BAIRRO:</Span>
+        {bairro}
+      </Paragraph>
+      <Paragraph>
+        <Span>CIDADE:</Span>
+        {cidade.nome}
+      </Paragraph>
+      <Paragraph>
+        <Span>ESTADO:</Span>
+        {estado.sigla}
+      </Paragraph>
+      <Paragraph>
+        <Span>DDD:</Span>
+        {cidade.ddd}
+      </Paragraph>
+      <Paragraph>
+        <Span>IBGE:</Span>
+        {cidade.ibge}
+      </Paragraph>
+    </Wrapper>
+    }
     </>
 )
 

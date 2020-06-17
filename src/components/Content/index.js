@@ -6,11 +6,11 @@ import InputFindCep from '../InputFindCep'
 import CepTable from '../CepTable'
 
 // STYLES
-import { Wrapper, GoBackHome } from './style'
+import { Wrapper, ButtonRed } from './style'
 
 // ICONS
 import {ReactComponent as ArrowLeft} from '../../assets/arrow-left.svg'
-
+import {ReactComponent as ArrowRight} from '../../assets/arrow-right.svg'
 const Search = ({
   erro,
   handleSubmit,
@@ -27,15 +27,20 @@ const Search = ({
 
     {isLoading && <div>Carregando...</div>}
     
-    {searchedZidCode && <GoBackHome onClick={goInitialPage}>
+    {searchedZidCode && <ButtonRed onClick={goInitialPage}>
       <ArrowLeft />
       BUSCAR OUTRO CEP
-    </GoBackHome>}
+    </ButtonRed>}
     {searchedZidCode && <CepTable />}
 
     {erro && <div>CEP não encontrado.</div>}
     
-    {/* {map && 
+    {searchedZidCode && <ButtonRed>
+      VER NO MAPA
+      <ArrowRight />
+    </ButtonRed>}
+    
+    {/* {map &&
      <Map latitude={Number(latitude)} longitude={Number(longitude)} altitude={Number(altitude)}/>
     } */}
     
