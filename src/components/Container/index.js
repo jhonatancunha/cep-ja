@@ -5,23 +5,28 @@ import { connect } from 'react-redux'
 import SearchCEP from '../Content';
 
 // ACTIONS CREATORS
-import { fetchAddress } from '../../redux-flow/reducers/ZipCode/action-creator'
+import { fetchAddress, goInitialPage } from '../../redux-flow/reducers/ZipCode/action-creator'
 
 //IMGS
+import Illustration from '../../assets/illustration.svg'
 import {ReactComponent as Logo} from '../../assets/cepja.svg'
 
 // STYLE
-import {Wrapper} from './style'
+import { Wrapper, All } from './style'
 
-const Search  = ({ address, handleSubmit }) => {
+const Search  = ({ address, handleSubmit, handleInitialPage }) => {
   return (
-    <Wrapper>
-      <Logo className="logoSvg" />
-      <SearchCEP 
-        {...address}
-        handleSubmit={handleSubmit} 
-        />
-    </Wrapper>
+    <All>
+      <Wrapper>
+        <Logo className="logoSvg" />
+        <SearchCEP 
+          {...address}
+          handleSubmit={handleSubmit}
+          goInitialPage={handleInitialPage}
+          />
+      </Wrapper>
+      <img src={Illustration} alt="CepJá!" />
+    </All>
   )
 }
 
@@ -33,6 +38,11 @@ const mapDispatchToProps = (dispatch) => ({
   handleSubmit: (e) => {
     e.preventDefault();
     dispatch(fetchAddress(e.target.cep.value));
+  },
+  handleInitialPage: (e) => {
+    console.log('dispatch')
+    
+    dispatch(goInitialPage())
   }
 });
 

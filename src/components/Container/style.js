@@ -1,15 +1,28 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.div`
+export const All = styled.div`
+@media (min-width: 800px){
   display: flex;
-  flex-direction: column;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-  width: 50vw;
+  
+  img{
+    margin-left: 50px;
+  }
+}
+`
 
-  .logoSvg{
-    height: 250px;
+export const Wrapper = styled.div`
+  @media (min-width: 800px){
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    height: 100vh;
+    width: 50vw;
+
+    .logoSvg{
+      height: 250px;
+    }
+    
   }
 
 `

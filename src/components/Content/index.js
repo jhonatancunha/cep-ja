@@ -5,6 +5,12 @@ import Map from '../Maps'
 import InputFindCep from '../InputFindCep'
 import CepTable from '../CepTable'
 
+// STYLES
+import { Wrapper, GoBackHome } from './style'
+
+// ICONS
+import {ReactComponent as ArrowLeft} from '../../assets/arrow-left.svg'
+
 const Search = ({
   erro,
   handleSubmit,
@@ -12,14 +18,20 @@ const Search = ({
   longitude,
   altitude,
   isLoading,
+  searchedZidCode,
+  goInitialPage,
   map
 }) => (
-  <div>
-    <InputFindCep handleSubmit={handleSubmit} isLoading={isLoading}  />
+  <Wrapper>
+    {!searchedZidCode && <InputFindCep handleSubmit={handleSubmit} isLoading={isLoading}  />}
 
     {isLoading && <div>Carregando...</div>}
     
-    {/* <CepTable /> */}
+    {searchedZidCode && <GoBackHome onClick={goInitialPage}>
+      <ArrowLeft />
+      BUSCAR OUTRO CEP
+    </GoBackHome>}
+    {searchedZidCode && <CepTable />}
 
     {erro && <div>CEP não encontrado.</div>}
     
@@ -27,7 +39,7 @@ const Search = ({
      <Map latitude={Number(latitude)} longitude={Number(longitude)} altitude={Number(altitude)}/>
     } */}
     
-  </div>
+  </Wrapper>
 );
 
 export default Search;

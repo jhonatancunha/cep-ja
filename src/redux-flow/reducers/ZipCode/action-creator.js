@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SUCESS, LOADING } from './actions'
+import { SUCESS, LOADING, BACKINITIALPAGE } from './actions'
 
 export const fetchAddress = (cep) => async (dispatch, getState) => {
     dispatch({ type: LOADING })
@@ -16,4 +16,8 @@ export const fetchAddress = (cep) => async (dispatch, getState) => {
       type: SUCESS,
       payload: response.data
     }));
+}
+
+export const goInitialPage = (e) => (dispatch) => {
+  dispatch({type: BACKINITIALPAGE})
 } 
