@@ -14,7 +14,7 @@ export default ({handleSubmit, isLoading}) => (
       <Input 
         name="cep" 
         pattern="[0-9]{8}"
-        placeholder="Digite aqui..."
+        placeholder="Digite o CEP que deseja recolher informações..."
         title="É permitido somente números e exatamente 8 dígitos"
         required
         />

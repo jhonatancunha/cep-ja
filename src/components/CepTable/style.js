@@ -6,6 +6,10 @@ export const Wrapper = styled.div`
   margin-top: 20px;
   width: calc(100% + 110px);
   margin-bottom: 20px;
+
+  @media (max-width: 809px){
+    width: 100%;
+  }
 `
 
 export const Paragraph = styled.p`
@@ -13,6 +17,10 @@ export const Paragraph = styled.p`
   color: #F2F1F1;
   display: flex;
   align-items: center;
+
+  @media (max-width: 600px){
+    height: 30px;
+  }
 
 `
 

@@ -9,4 +9,8 @@ export const WrapperMap = styled.div`
   margin-top: 20px;
   border: 5px solid #18181a;
   border-radius: 4px;
+
+  @media (max-width: 450px){
+    left: 20px;
+  }
 `

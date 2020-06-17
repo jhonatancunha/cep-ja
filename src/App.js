@@ -5,9 +5,7 @@ import SearchAPP from './components/Container'
 
 function App() {
   return (
-    <div className="App">
       <SearchAPP />
-    </div>
   );
 }
 

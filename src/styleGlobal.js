@@ -14,16 +14,19 @@ export const GlobalStyle = createGlobalStyle`
     width: 100vw;
     background-color: #18181A;
     background-repeat: no-repeat;
+    overflow: hidden;
 
     /* ONLY DESKTOP */
-    @media (min-width: 800px){
+    @media (min-width: 810px){
       background-image: url(${props => props.EllipseDesktop});
       background-position: right;
+      background-size: contain;
     }
     /* ONLY MOBILE */
-    @media (max-width: 799px){
+    @media (max-width: 809px){
       background-image: url(${props => props.EllipseMobile});
       background-position: bottom;
+      background-size: 100% 45%;
     }
   }
   

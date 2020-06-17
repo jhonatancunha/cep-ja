@@ -16,7 +16,7 @@ import { Wrapper, All } from './style'
 
 const Search  = ({ address, handleSubmit, handleInitialPage, handleOpenMap, handleGoBack}) => {
   return (
-    <All>
+    <All isSearched={address.searchedZidCode}>
       <Wrapper isSearched={address.searchedZidCode} isMapOpen={address.isMapOpen} >
         <Logo className="logoSvg" />
         <SearchCEP 
