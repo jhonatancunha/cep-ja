@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import SearchCEP from '../Content';
 
 // ACTIONS CREATORS
-import { fetchAddress, goInitialPage } from '../../redux-flow/reducers/ZipCode/action-creator'
+import { fetchAddress, goInitialPage, openMap, goBack } from '../../redux-flow/reducers/ZipCode/action-creator'
 
 //IMGS
 import Illustration from '../../assets/illustration.svg'
@@ -14,19 +14,21 @@ import {ReactComponent as Logo} from '../../assets/cepja.svg'
 // STYLE
 import { Wrapper, All } from './style'
 
-const Search  = ({ address, handleSubmit, handleInitialPage}) => {
+const Search  = ({ address, handleSubmit, handleInitialPage, handleOpenMap, handleGoBack}) => {
   return (
     <All>
-    {console.log('searchedZidCode', address.searchedZidCode)}
-      <Wrapper isSearched={address.searchedZidCode} >
+    {console.log('address', address)}
+      <Wrapper isSearched={address.searchedZidCode} isMapOpen={address.isMapOpen} >
         <Logo className="logoSvg" />
         <SearchCEP 
           {...address}
+          handleOpenMap={handleOpenMap}
           handleSubmit={handleSubmit}
           goInitialPage={handleInitialPage}
+          handleGoBack={handleGoBack}
           />
       </Wrapper>
-      <img src={Illustration} alt="CepJá!" />
+      {!address.isMapOpen && <img src={Illustration} alt="CepJá!" />}
     </All>
   )
 }
@@ -41,9 +43,13 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(fetchAddress(e.target.cep.value));
   },
   handleInitialPage: (e) => {
-    console.log('dispatch')
-    
     dispatch(goInitialPage())
+  },
+  handleOpenMap: (e) => {
+    dispatch(openMap())
+  },
+  handleGoBack: (e) => {
+    dispatch(goBack())
   }
 });
 

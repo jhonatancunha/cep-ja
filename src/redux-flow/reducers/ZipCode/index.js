@@ -1,7 +1,7 @@
 import createReducer from '../createReducer'
 
 // ACTIONS
-import { LOADING, SUCESS, BACKINITIALPAGE } from './actions'
+import { LOADING, SUCESS, BACKINITIALPAGE, LOADMAP, GOBACK } from './actions'
 
 export const initialState = {
   cep: '',
@@ -19,7 +19,7 @@ export const initialState = {
   longitude: 0,
   logradouro: '',
   isLoading: false,
-  map: false,
+  isMapOpen: false,
   searchedZidCode: false
 }
 
@@ -27,16 +27,24 @@ const ZipCode = createReducer(initialState, {
   [LOADING]: (state, action) => ({
     ...state,
     isLoading: true,
-    map: false
+    isMapOpen: false
   }),
   [SUCESS]: (state, action) => ({
     ...action.payload,
     isLoading: false,
-    map: true,
     searchedZidCode: true
   }),
+  [GOBACK]: (state, action) => ({
+    ...state,
+    isMapOpen: false,
+  }),
   [BACKINITIALPAGE]: (state, action) => ({
-    searchedZidCode: false
+    searchedZidCode: false,
+    isMapOpen: false
+  }),
+  [LOADMAP]: (state, action) => ({
+    ...state,
+    isMapOpen: true
   })
 });
 

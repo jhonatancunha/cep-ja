@@ -20,29 +20,39 @@ const Search = ({
   isLoading,
   searchedZidCode,
   goInitialPage,
-  map
+  handleOpenMap,
+  isMapOpen,
+  handleGoBack
 }) => (
   <Wrapper>
     {!searchedZidCode && <InputFindCep handleSubmit={handleSubmit} isLoading={isLoading}  />}
 
     {isLoading && <div>Carregando...</div>}
     
-    {searchedZidCode && <ButtonRed onClick={goInitialPage}>
+    {searchedZidCode && !isMapOpen && <ButtonRed onClick={goInitialPage}>
       <ArrowLeft />
-      BUSCAR OUTRO CEP
-    </ButtonRed>}
-    {searchedZidCode && <CepTable />}
+        BUSCAR OUTRO CEP
+      </ButtonRed>
+    }
+    {searchedZidCode && !isMapOpen && <CepTable />}
 
     {erro && <div>CEP não encontrado.</div>}
     
-    {searchedZidCode && <ButtonRed>
-      VER NO MAPA
-      <ArrowRight />
-    </ButtonRed>}
+    {searchedZidCode && !isMapOpen &&
+      <ButtonRed onClick={handleOpenMap} >
+        VER NO MAPA
+        <ArrowRight />
+      </ButtonRed>
+    }
     
-    {/* {map &&
-     <Map latitude={Number(latitude)} longitude={Number(longitude)} altitude={Number(altitude)}/>
-    } */}
+    {isMapOpen &&
+    <>
+    <ButtonRed onClick={handleGoBack} isMapOpen={isMapOpen}>
+      <ArrowLeft />
+    </ButtonRed>
+     <Map isMapOpen={isMapOpen} latitude={Number(latitude)} longitude={Number(longitude)} altitude={Number(altitude)}/>
+    </>
+    }
     
   </Wrapper>
 );

@@ -21,10 +21,15 @@ export const ButtonRed = styled.button`
     padding: 10px;
     font-size: 1rem;
     font-weight: bold;
-    width: 300px;
     margin-top: 5px;
     border-radius: 4px;
 
+    /* MAP OPENED */
+    width: ${props => props.isMapOpen ? '55px' : '300px'};
+    position: ${props => props.isMapOpen ? 'absolute' : ''};
+    top: ${props => props.isMapOpen ? '50px' : '0'};
+    left: ${props => props.isMapOpen ? '50px' : '0'};
+    
     svg{
       height: 20px;
     }
