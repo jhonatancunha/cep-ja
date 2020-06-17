@@ -11,24 +11,26 @@ export const Wrapper = styled.div`
 `
 
 export const ButtonRed = styled.button`
+cursor: pointer;    
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #D42627;
-  color: #F2F1F1;
   border: 0;
-  margin-top: 5px;
   border-radius: 4px;
+  
+  margin-top: 5px;
   padding: 10px;
-  height: 50px;
+
   font-size: 1rem;
   font-weight: bold;
-  cursor: pointer;    
+  color: #F2F1F1;
+  background: #D42627;
 
   position: ${props => props.isMapOpen ? 'absolute' : ''};
   top: ${props => props.isMapOpen ? '50px' : '0'};
   left: ${props => props.isMapOpen ? '50px' : '0'};
   width: ${props => props.isMapOpen ? '55px' : 'calc(100% + 110px)'};
+  height: 50px;
 
   svg{
     height: 20px;
@@ -41,9 +43,9 @@ export const ButtonRed = styled.button`
 
   /* DESKTOP */
   @media (min-width: 810px){
+    transition: all .2s ease-in-out;
 
     @media (hover: hover){
-      transition: all .2s ease-in-out;
       :hover{
         background: #F2F1F1;
         color: #D42627;

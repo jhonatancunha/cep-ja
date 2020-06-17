@@ -7,12 +7,13 @@ export const Wrapper = styled.footer`
   color: #18181A;
   font-weight: bold;
   
+  /* DESKTOP */
   @media (min-width: 810px){
     bottom: 40px;
     right: 69px;
-    bottom: 40px;
   }
 
+  /* MOBILE */
   @media (max-width: 809px){
     bottom: 50px;
     justify-content: center;
@@ -26,6 +27,13 @@ export const Wrapper = styled.footer`
 
   svg{
     margin: 0 10px 0 10px;
+  }
+
+  @media (hover:hover){
+    transition: all .2s ease-in-out;
+    svg:hover{
+      opacity: 80%;
+    }
   }
 `
 

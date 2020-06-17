@@ -35,13 +35,16 @@ const Search = ({
     </LoadDIV>
     }
     
-
-    {searchedZidCode && !isMapOpen && <ButtonRed onClick={goInitialPage}>
+    {searchedZidCode && !isMapOpen && 
+    <>
+      <ButtonRed onClick={goInitialPage}>
       <ArrowLeft />
         BUSCAR OUTRO CEP
       </ButtonRed>
+      
+      <CepTable />
+    </>
     }
-    {searchedZidCode && !isMapOpen && <CepTable />}
 
     {erro && <div>CEP não encontrado.</div>}
     

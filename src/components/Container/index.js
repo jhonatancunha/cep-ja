@@ -12,12 +12,12 @@ import Illustration from '../../assets/illustration.svg';
 import {ReactComponent as Logo} from '../../assets/cepja.svg';
 
 // STYLE
-import { Wrapper, All } from './style'
+import { Div, Wrapper } from './style'
 
 const Search  = ({ address, handleSubmit, handleInitialPage, handleOpenMap, handleGoBack}) => {
   return (
-    <All isSearched={address.searchedZidCode}>
-      <Wrapper isSearched={address.searchedZidCode} isMapOpen={address.isMapOpen} >
+    <Wrapper isSearched={address.searchedZidCode}>
+      <Div isSearched={address.searchedZidCode} isMapOpen={address.isMapOpen} >
         <Logo className="logoSvg" />
         <SearchCEP 
           {...address}
@@ -26,10 +26,10 @@ const Search  = ({ address, handleSubmit, handleInitialPage, handleOpenMap, hand
           goInitialPage={handleInitialPage}
           handleGoBack={handleGoBack}
           />
-      </Wrapper>
+      </Div>
       {!address.isMapOpen && <img src={Illustration} alt="CepJá!" />}
       <Footer />
-    </All>
+    </Wrapper>
   )
 }
 

@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
-export const All = styled.div`
+export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
+
   /* DESKTOP */
   @media (min-width: 810px){
     img{
@@ -22,6 +23,7 @@ export const All = styled.div`
       max-width: 100vw;
     }
   }
+  
   @media (max-width: 450px){
     img{
       height: 50%;
@@ -30,7 +32,7 @@ export const All = styled.div`
  
 `
 
-export const Wrapper = styled.div`
+export const Div = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;

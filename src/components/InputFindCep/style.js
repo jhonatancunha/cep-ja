@@ -20,7 +20,12 @@ export const Button = styled.button`
   @media (hover: hover){
     transition: all .2s ease-in-out;
     :hover{
-      opacity: 80%;
+      background:#F2F1F1;
+      border-right: 3px solid #D42627;
+
+      svg path{
+        fill: #D42627;
+      }
     }
   }
 `
