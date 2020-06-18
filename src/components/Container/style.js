@@ -29,6 +29,15 @@ export const Wrapper = styled.div`
       height: 50%;
     }
   } 
+
+   /* SUMIR QUANDO TECLADO ABRIR */
+   @media (max-height: 485px){
+      img{
+        /* display: none; */
+        height: 40%;
+      }
+    }
+
  
 `
 
