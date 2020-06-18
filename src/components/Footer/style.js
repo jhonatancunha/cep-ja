@@ -20,7 +20,7 @@ export const Wrapper = styled.footer`
     width: 100vw;
   }
 
-
+  /* MOBILE */
   @media (max-width: 450px){
     bottom: 10px;
   }
@@ -33,6 +33,15 @@ export const Wrapper = styled.footer`
     transition: all .2s ease-in-out;
     svg:hover{
       opacity: 80%;
+    }
+  }
+
+  /*QUANDO MOBILE TECLADO ABRIR */
+  @media (max-height: 385px){
+    color: #F2F1F1;
+
+    .git path{
+      fill: #F2F1F1;
     }
   }
 `

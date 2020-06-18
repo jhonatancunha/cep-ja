@@ -38,6 +38,12 @@ export const Wrapper = styled.div`
       }
     }
 
+    @media (max-height: 401px){
+      img{
+        display: none;
+      }
+    }
+
  
 `
 

@@ -28,6 +28,11 @@ export const GlobalStyle = createGlobalStyle`
       background-position: bottom;
       background-size: 100% 45%;
     }
+
+    /* ARRUMANDO QUANDO TECLADO ABRIR */
+    @media (max-height: 385px){
+      background-image: none;
+    }
   }
   
 `

@@ -17,7 +17,7 @@ export default () => (
     </Span>
     2020. Jhonatan Cunha
     <a href={gitLink}>
-      <Github />
+      <Github className="git" />
     </a>
     <a href={faceLink}>
       <Facebook />
