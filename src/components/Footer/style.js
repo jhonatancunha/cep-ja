@@ -44,6 +44,10 @@ export const Wrapper = styled.footer`
       fill: #F2F1F1;
     }
   }
+
+  @media (max-height: 266px){
+    display: none;
+  }
 `
 
 export const Span = styled.span`
