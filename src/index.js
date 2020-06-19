@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-
 // CONFIGURANDO REDUX
 import { Provider } from'react-redux'
 import configureStore from './redux-flow/configure-store'
@@ -14,6 +13,7 @@ import EllipseMobile from './assets/elipsemobile.svg'
 
 
 const store = configureStore();
+
 
 ReactDOM.render(
   <React.StrictMode>

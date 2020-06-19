@@ -14,7 +14,8 @@ export const GlobalStyle = createGlobalStyle`
     width: 100vw;
     background-color: #18181A;
     background-repeat: no-repeat;
-    overflow: hidden;
+    overflow-x: hidden;
+
 
     /* ONLY DESKTOP */
     @media (min-width: 810px){
@@ -22,17 +23,30 @@ export const GlobalStyle = createGlobalStyle`
       background-position: right;
       background-size: contain;
     }
+
+    @media (max-width: 1105px){
+      background-size: 40% 100%;
+    }
+    
     /* ONLY MOBILE */
-    @media (max-width: 809px){
+    @media (max-width: 869px){
       background-image: url(${props => props.EllipseMobile});
       background-position: bottom;
-      background-size: 100% 45%;
+      background-size: 100% 39%;
     }
 
+
     /* ARRUMANDO QUANDO TECLADO ABRIR */
-    @media (max-height: 385px){
+    @media (max-height: 590px){
       background-image: none;
     }
+
+    background-attachment: fixed;
+  }
+
+  #root{
+    height: 100%;
+    width: 100%;
   }
   
 `

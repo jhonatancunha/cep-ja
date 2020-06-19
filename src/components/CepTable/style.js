@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   background: #212121;
   padding: 20px;
   margin-top: 20px;
-  width: calc(100% + 110px);
+  width: 100%;
   margin-bottom: 20px;
 
   @media (max-width: 809px){
@@ -24,7 +24,13 @@ export const Paragraph = styled.p`
 
 `
 
-export const Span = styled.span`
+export const SpanCEP = styled.span`
   font-weight: bolder;
   margin-right: 10px;
+`
+
+export const SpanLoading = styled.span`
+  color: #F2F1F1;
+  font-size: 1.1em;
+  font-weight: bolder;
 `

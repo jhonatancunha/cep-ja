@@ -2,62 +2,81 @@ import React from 'react';
 import { connect } from 'react-redux' 
 
 // STYLES
-import { Wrapper, Paragraph, Span } from './style'
+import { Wrapper, Paragraph, SpanCEP, SpanLoading } from './style'
+import { ButtonRed, LoadDIV, Span } from '../Content/style'
+
+import {ReactComponent as ArrowRight} from '../../assets/arrow-right.svg'
+import Loading from '../commom/Loading'
+
 
 const CepTable =  ({
-  erro,
-  logradouro,
-  cep,
-  bairro,
-  complemento,
-  uf,
-  localidade,
-  ibge,
-  ddd
+  data,
+  handleOpenMap
 }) => (
   <>
-    { !erro &&
-    <Wrapper>
-      <Paragraph>
-        <Span>CEP:</Span>
-        {cep}
-      </Paragraph>
-      <Paragraph>
-        <Span>LOGRADOURO:</Span>
-        {logradouro}
-      </Paragraph>
-      <Paragraph>
-        <Span>COMPLEMENTO:</Span>
-        {complemento}
-      </Paragraph>
-      <Paragraph>
-        <Span>BAIRRO:</Span>
-        {bairro}
-      </Paragraph>
-      <Paragraph>
-        <Span>CIDADE:</Span>
-        {localidade}
-      </Paragraph>
-      <Paragraph>
-        <Span>ESTADO:</Span>
-        {uf}
-      </Paragraph>
-      <Paragraph>
-        <Span>DDD:</Span>
-        {ddd}
-      </Paragraph>
-      <Paragraph>
-        <Span>IBGE:</Span>
-        {ibge}
-      </Paragraph>
-    </Wrapper>
-    }
-    </>
+  {console.log(data)}
+  {console.log(data.address.map((item) => item))}
+    { data.address.map((city) => 
+      <Wrapper key={city.cep}>
+        <Paragraph>
+        <SpanCEP>CEP:</SpanCEP>
+            {city.cep}
+        </Paragraph>
+        <Paragraph>
+          <SpanCEP>LOGRADOURO:</SpanCEP>
+          {city.logradouro}
+        </Paragraph>
+        <Paragraph>
+          <SpanCEP>COMPLEMENTO:</SpanCEP>
+          {city.complemento}
+        </Paragraph>
+        <Paragraph>
+          <SpanCEP>BAIRRO:</SpanCEP>
+          {city.bairro}
+        </Paragraph>
+        <Paragraph>
+          <SpanCEP>CIDADE:</SpanCEP>
+          {city.localidade}
+        </Paragraph>
+        <Paragraph>
+          <SpanCEP>ESTADO:</SpanCEP>
+          {city.uf}
+        </Paragraph>
+        <Paragraph>
+          <SpanCEP>DDD:</SpanCEP>
+          {city.ddd}
+        </Paragraph>
+        <Paragraph>
+          <SpanCEP>IBGE:</SpanCEP>
+          {city.ibge}
+        </Paragraph>
+
+        {/* {!data.mapisReady &&
+          <LoadDIV>
+            <SpanLoading>Carregando mapa</SpanLoading><Loading />
+          </LoadDIV>
+        } */}
+
+          <ButtonRed >
+            VER NO MAPA
+            <ArrowRight />
+          </ButtonRed>
+
+        {/* {!data.isMapOpen && data.mapisReady && 
+          <ButtonRed onClick={handleOpenMap} >
+            VER NO MAPA
+            <ArrowRight />
+          </ButtonRed>
+        } */}
+        </Wrapper>
+    )
+  }
+  </>
 )
 
 
 const mapStateToProps = (state) => ({
-  ...state.address
+  data: state.address
 })
 
 export default connect(mapStateToProps)(CepTable);

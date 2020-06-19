@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.footer`
   display: flex;
-  position: absolute;
+  position: fixed;
   align-items: center;
   color: #18181A;
   font-weight: bold;
@@ -15,7 +15,7 @@ export const Wrapper = styled.footer`
 
   /* MOBILE */
   @media (max-width: 809px){
-    bottom: 50px;
+    bottom: 20px;
     justify-content: center;
     width: 100vw;
   }
@@ -37,7 +37,7 @@ export const Wrapper = styled.footer`
   }
 
   /*QUANDO MOBILE TECLADO ABRIR */
-  @media (max-height: 385px){
+  @media (max-height: 590px){
     color: #F2F1F1;
 
     .git path{
@@ -45,7 +45,7 @@ export const Wrapper = styled.footer`
     }
   }
 
-  @media (max-height: 266px){
+  @media (max-height: 385px){
     display: none;
   }
 `

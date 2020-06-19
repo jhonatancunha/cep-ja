@@ -5,16 +5,19 @@ import Map from '../Maps'
 import InputFindCep from '../InputFindCep'
 import CepTable from '../CepTable'
 import Loading from '../commom/Loading'
+import {ReactComponent as Logo} from '../../assets/cepja.svg';
 
 // STYLES
 import { Wrapper, ButtonRed, LoadDIV, Span } from './style'
 
 // ICONS
 import {ReactComponent as ArrowLeft} from '../../assets/arrow-left.svg'
-import {ReactComponent as ArrowRight} from '../../assets/arrow-right.svg'
+
 const Search = ({
+  city,
   erro,
   handleSubmit,
+  handlepopulateCity,
   latitude,
   longitude,
   altitude,
@@ -27,7 +30,8 @@ const Search = ({
   mapisReady
 }) => (
   <Wrapper>
-    {!searchedZidCode && <InputFindCep handleSubmit={handleSubmit} isLoading={isLoading}  />}
+    
+    {!searchedZidCode && <InputFindCep city={city} handlepopulateCity={handlepopulateCity} handleSubmit={handleSubmit} isLoading={isLoading}  />}
 
     {isLoading && 
     <LoadDIV>
@@ -36,30 +40,10 @@ const Search = ({
     }
     
     {searchedZidCode && !isMapOpen && 
-    <>
-      <ButtonRed onClick={goInitialPage}>
-      <ArrowLeft />
-        BUSCAR OUTRO CEP
-      </ButtonRed>
-      
-      <CepTable />
-    </>
+      <CepTable handleOpenMap={handleOpenMap} />
     }
 
     {erro && <div>CEP não encontrado.</div>}
-    
-    {!mapisReady && searchedZidCode &&
-    <LoadDIV>
-      <Span>Carregando mapa</Span><Loading />
-    </LoadDIV>
-    }
-
-    {searchedZidCode && !isMapOpen && mapisReady && 
-      <ButtonRed onClick={handleOpenMap} >
-        VER NO MAPA
-        <ArrowRight />
-      </ButtonRed>
-    }
     
     {isMapOpen  &&
     <>

@@ -3,10 +3,18 @@ import styled from 'styled-components'
 export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
-
+    align-items: center;
+    width: 100%;
     /* DESKTOP */
     @media (max-width: 809px){
       width: 80vw;
+      max-height: calc(100vh - 410px);
+      overflow: scroll;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 550px){
+      max-height: 55vh;
     }
 `
 
@@ -29,7 +37,7 @@ cursor: pointer;
   position: ${props => props.isMapOpen ? 'absolute' : ''};
   top: ${props => props.isMapOpen ? '50px' : '0'};
   left: ${props => props.isMapOpen ? '50px' : '0'};
-  width: ${props => props.isMapOpen ? '55px' : 'calc(100% + 110px)'};
+  width: ${props => props.isMapOpen ? '55px' : 'calc(100%)'};
   height: 50px;
 
   svg{
@@ -57,6 +65,14 @@ cursor: pointer;
       }
     }
 
+  }
+`
+
+export const ButtonBack = styled(ButtonRed)`
+  /* MOBILE */
+  @media (max-width: 809px){
+    width: ${props => props.isMapOpen ? '55px' : '80vw'};
+    margin: 0 auto;
   }
 `
 

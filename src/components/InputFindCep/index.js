@@ -4,19 +4,65 @@ import React from 'react'
 import { ReactComponent as SearchIcon } from '../../assets/search.svg'
 
 // STYLES
-import { Wrapper, Button, Input } from './style'
+import { Wrapper, Button, Input, Select, Title } from './style'
 
-export default ({handleSubmit, isLoading}) => (
+// DATABASE ESTADOS
+import estados from '../../services/estados'
+
+
+export default ({
+  handleSubmit, 
+  isLoading, 
+  handlepopulateCity, 
+  city,
+ 
+}
+  ) => {
+  return (
   <Wrapper onSubmit={handleSubmit}>
+
+    <section>
+        <Title>
+          <span>UF</span>
+        </Title>
+
+        <Select onChange={handlepopulateCity()} className="uf" name="uf"  >
+          {estados.map((uf) => 
+            <option  
+            key={uf.id} 
+            value={uf.sigla+uf.id}  
+            >
+              {uf.sigla}
+            </option>   
+          )}
+        </Select>
+    </section>
+
+    <section>
+        <Title>
+          <span>CIDADE</span>
+        </Title>
+
+        <Select name="city">
+          {Object.entries(city).map((nome) =>
+            <option key={nome[1]} value={nome[1]}>{nome[1]}</option>
+          )}
+        </Select>
+    </section>
+          
+    <section>
       <Button type="submit" disabled={isLoading}>
         <SearchIcon /> 
       </Button>
       <Input 
         name="cep" 
-        pattern="[0-9]{8}"
-        placeholder="Digite o CEP que deseja recolher informações..."
-        title="É permitido somente números e exatamente 8 dígitos"
+        placeholder="Ex: Rua Tijuco ou 87208-094"
         required
         />
-    </Wrapper>
-)
+    </section>
+
+   
+
+  </Wrapper>
+  )
+}
