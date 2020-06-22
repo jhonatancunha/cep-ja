@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
     @media (max-width: 809px){
       width: 80vw;
       max-height: calc(100vh - 410px);
-      overflow: scroll;
+      overflow-y: scroll;
       margin-top: 20px;
     }
 
@@ -64,7 +64,6 @@ cursor: pointer;
         fill: #D42627;
       }
     }
-
   }
 `
 
@@ -86,8 +85,17 @@ export const Span = styled.span`
   color: #F2F1F1;
   font-size: 1.1em;
   font-weight: bolder;
-
-  @media (max-width: 809px){
-    color: #18181A;
-  }
+`
+export const LoadDivMap = styled.div`
+  background: #18181AF0;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
 `

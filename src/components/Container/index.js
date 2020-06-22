@@ -34,7 +34,7 @@ const Search  = ({
 
   return (
     <Container isSearched={address.searchedZidCode}>
-      <WrapperLeft className="wrapper-content" isSearched={address.searchedZidCode}>
+      <WrapperLeft className="wrapper-content" isMapOpen={address.isMapOpen} isSearched={address.searchedZidCode}>
         <Logo className="logoSvg" />
 
         {address.searchedZidCode && !address.isMapOpen && 
@@ -80,10 +80,10 @@ const mapDispatchToProps = (dispatch) => ({
   handleInitialPage: (e) => {
     dispatch(goInitialPage())
   },
-  handleOpenMap: (e) => {
-    dispatch(openMap())
+  handleOpenMap: (cep, index) => (e) => {
+    dispatch(openMap(cep))
   },
-  handleGoBack: (e) => {
+  handleGoBack:  (e) => {
     dispatch(goBack())
   },
   handlepopulateCity: (id) => (e) => {

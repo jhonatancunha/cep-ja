@@ -4,10 +4,14 @@ export const Wrapper = styled.form`
   display: flex;
   flex-direction: column;
   width: 400px;
-  
-   /* DESKTOP */
+
+   /* MOBILE */
   @media (max-width: 809px){
     width: 80vw;
+  }
+  
+  @media (min-width: 623px){
+    width: 80%;
   }
 
   section{
@@ -35,12 +39,7 @@ export const Button = styled.button`
   @media (hover: hover){
     transition: all .2s ease-in-out;
     :hover{
-      background:#F2F1F1;
-      border-right: 3px solid #D42627;
-
-      svg path{
-        fill: #D42627;
-      }
+      filter: brightness(60%);
     }
   }
 `

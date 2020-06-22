@@ -4,11 +4,10 @@ import ReactMapGL, { Marker } from 'react-map-gl'
 // STYLE
 import { WrapperMap } from './style'
 
-const Map = ({longitude, latitude, altitude}) => {
+const Map = ({longitude, latitude}) => {
   const [viewport, setViewport] = useState({
     latitude,
     longitude,
-    altitude,
     width: '100%',
     height: '100%',
     zoom: 17

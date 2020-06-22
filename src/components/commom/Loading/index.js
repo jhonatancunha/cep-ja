@@ -27,10 +27,6 @@ const Wrapper = styled.div`
     border-radius: 100%;
     margin: 2px;
     animation: ${loading} 0.9s linear infinite;
-
-    @media (max-width: 809px){
-      background: #18181A;
-    }
   }
 
   div:nth-child(1){

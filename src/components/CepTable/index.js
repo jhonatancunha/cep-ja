@@ -2,12 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux' 
 
 // STYLES
-import { Wrapper, Paragraph, SpanCEP, SpanLoading } from './style'
-import { ButtonRed, LoadDIV, Span } from '../Content/style'
+import { Wrapper, Paragraph, SpanCEP } from './style'
+import { ButtonRed } from '../Content/style'
 
 import {ReactComponent as ArrowRight} from '../../assets/arrow-right.svg'
-import Loading from '../commom/Loading'
-
 
 const CepTable =  ({
   data,
@@ -15,8 +13,7 @@ const CepTable =  ({
 }) => (
   <>
   {console.log(data)}
-  {console.log(data.address.map((item) => item))}
-    { data.address.map((city) => 
+    { data.address.map((city, index) => 
       <Wrapper key={city.cep}>
         <Paragraph>
         <SpanCEP>CEP:</SpanCEP>
@@ -49,31 +46,17 @@ const CepTable =  ({
         <Paragraph>
           <SpanCEP>IBGE:</SpanCEP>
           {city.ibge}
-        </Paragraph>
+        </Paragraph> 
 
-        {/* {!data.mapisReady &&
-          <LoadDIV>
-            <SpanLoading>Carregando mapa</SpanLoading><Loading />
-          </LoadDIV>
-        } */}
-
-          <ButtonRed >
-            VER NO MAPA
-            <ArrowRight />
-          </ButtonRed>
-
-        {/* {!data.isMapOpen && data.mapisReady && 
-          <ButtonRed onClick={handleOpenMap} >
-            VER NO MAPA
-            <ArrowRight />
-          </ButtonRed>
-        } */}
-        </Wrapper>
+        <ButtonRed value={city.cep} onClick={handleOpenMap([city.logradouro, city.uf, city.localidade])}>
+          VER NO MAPA
+          <ArrowRight />
+        </ButtonRed>
+      </Wrapper>
     )
   }
   </>
 )
-
 
 const mapStateToProps = (state) => ({
   data: state.address

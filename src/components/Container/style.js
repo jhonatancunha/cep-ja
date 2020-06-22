@@ -14,7 +14,6 @@ export const Container = styled.div`
     .wrapper-content{
       margin-top: ${props => props.isSearched ? '50px' : 'calc(50vh - 300px)'};
     }
-
   }
   
   /* MOBILE */
@@ -44,36 +43,29 @@ export const Container = styled.div`
         display: none;
       }
     }
-
-   
 `
 
 export const WrapperLeft = styled.div`
-   /* logo */
    .logoSvg{
     max-width: 100vw;
     /* DESKTOP */
     @media (min-width: 810px){
-      height: ${props => props.isSearched ? '120px' : '250px'};
-      margin-bottom: ${props => props.isSearched ? '20px' : '20px'};
-      margin-left: ${props => props.isSearched ? '-85px' : '0'};
-   
-      position: ${props => props.isMapOpen ? 'absolute' : 'relative'};
-      bottom: ${props => props.isMapOpen ? '0' : '0'};
-      left: ${props => props.isMapOpen ? '-45px;' : '0'};
+      height: ${props => props.isSearched ? '70px' : '250px'};
+      margin-top: ${props => props.isSearched ? '-10px' : ''};
+      margin-left: ${props => props.isSearched ? '-160px' : '0'};
     }
 
     /* MOBILE */
     @media (max-width: 809px){
-      height: ${props => props.isMapOpen ? '100px' : '200px'};
-      margin-top: ${props => props.isMapOpen ? '10px' : '30px;'};
-      margin-bottom: ${props => props.isMapOpen ? '0' : '30px'};
+      height: ${props => props.isMapOpen ? '70px' : '200px'};
+      margin-top: ${props => props.isMapOpen ? '40px' : '30px;'};
+      margin-left: ${props => props.isMapOpen ? '-160px' : '0'};
+
     }
 
     @media (max-width: 550px){
-      height: 100px;
-      margin-top: ${props => props.isMapOpen ? '15px' : '30px'};
-      margin-left: ${props => props.isMapOpen ? '20px': '0'};
+      height: ${props => props.isMapOpen ? '70px' : '100px'};
+      margin-left: 0px;
     }
   }
 `
@@ -89,9 +81,7 @@ export const WrapperForm = styled.div`
 
   @media (max-width: 809px){
     flex-direction: column;
-  }
-
-  
+  }  
 `
 
 export const MapImage = styled.img`

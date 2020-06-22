@@ -1,7 +1,7 @@
 import createReducer from '../createReducer'
 
 // ACTIONS
-import { LOADING, SUCESS, BACKINITIALPAGE, LOADMAP, GOBACK } from './actions'
+import { LOADING, SUCESS, BACKINITIALPAGE, LOADMAP, GOBACK, ERROR } from './actions'
 
 export const initialState = {
   address: [],
@@ -10,16 +10,17 @@ export const initialState = {
   latitude: 0,
  
   isLoading: false,
-  isMapOpen: false,
   searchedZidCode: false,
-  mapisReady: false
+  
+  isMapOpen: false,
+  mapisLoading: false
 }
 
 const ZipCode = createReducer(initialState, {
   [LOADING]: (state, action) => ({
     ...state,
     isLoading: true,
-    isMapOpen: false
+
   }),
   [SUCESS]: (state, action) => ({
     ...state,
@@ -37,7 +38,11 @@ const ZipCode = createReducer(initialState, {
   }),
   [LOADMAP]: (state, action) => ({
     ...state,
-    isMapOpen: true
+    ...action.payload
+  }),
+  [ERROR]: (state, action) => ({
+    ...state,
+    ...action.payload,
   })
 });
 
