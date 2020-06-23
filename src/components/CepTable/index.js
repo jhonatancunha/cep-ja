@@ -43,7 +43,7 @@ const CepTable =  ({
           {city.ibge}
         </Paragraph> 
 
-        <ButtonRed value={city.cep} onClick={handleOpenMap([city.logradouro, city.uf, city.localidade])}>
+        <ButtonRed value={city.cep} onClick={handleOpenMap([city.logradouro, city.uf, city.localidade, city.cep])}>
           VER NO MAPA
           <ArrowRight />
         </ButtonRed>

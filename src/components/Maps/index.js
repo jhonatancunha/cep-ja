@@ -10,12 +10,13 @@ const Map = ({longitude, latitude}) => {
     longitude,
     width: '100%',
     height: '100%',
-    zoom: 17
+    zoom: 18
   })
 
 
   return (
     <WrapperMap>
+    {console.log(latitude, longitude)}
         <ReactMapGL
           mapStyle="mapbox://styles/jhonatancunha1/ckbidrmem1anr1iqhj66rptq3"
           {...viewport}
