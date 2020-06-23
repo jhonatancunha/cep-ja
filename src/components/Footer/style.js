@@ -6,23 +6,16 @@ export const Wrapper = styled.footer`
   align-items: center;
   color: #18181A;
   font-weight: bold;
-  
+  bottom: 10px;
+
   /* DESKTOP */
-  @media (min-width: 810px){
-    bottom: 40px;
-    right: 69px;
+  @media (min-width: 861px){
+    right: 20px;
   }
 
   /* MOBILE */
-  @media (max-width: 809px){
-    bottom: 20px;
-    justify-content: center;
-    width: 100vw;
-  }
-
-  /* MOBILE */
-  @media (max-width: 450px){
-    bottom: 10px;
+  @media (max-width: 860px){
+   position: ${props => props.searchedZidCode && !props.isMapOpen ? 'relative' : 'fixed'};
   }
 
   svg{

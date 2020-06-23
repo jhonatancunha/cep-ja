@@ -5,8 +5,9 @@ import { connect } from 'react-redux'
 import SearchCEP from '../Content';
 import Footer from '../Footer'
 
+
 // ACTIONS CREATORS
-import { fetchAddress, goInitialPage, openMap, goBack,  } from '../../redux-flow/reducers/ZipCode/action-creator'
+import { fetchAddress, goInitialPage, openMap, goBack, closeLoadingMap, closeNotification  } from '../../redux-flow/reducers/ZipCode/action-creator'
 import { populateCity } from '../../redux-flow/reducers/City/actions-creators'
 
 import Illustration from '../../assets/illustration.svg';
@@ -17,6 +18,7 @@ import {ReactComponent as ArrowLeft} from '../../assets/arrow-left.svg'
 import { WrapperForm, Container, WrapperLeft, MapImage } from './style'
 import { ButtonBack } from '../Content/style'
 
+
 const Search  = ({ 
   address, 
   city, 
@@ -25,6 +27,8 @@ const Search  = ({
   handleOpenMap, 
   handleGoBack, 
   handlepopulateCity,
+  handlecloseLoadingMap,
+  handleCloseNotification
 }) => {
 
   //BUSCANDO CIDADES DO PRIMEIRO ESTADO DO SELECT
@@ -33,10 +37,10 @@ const Search  = ({
   },[handlepopulateCity])
 
   return (
-    <Container isSearched={address.searchedZidCode}>
+    <Container isSearched={address.searchedZidCode} >
       <WrapperLeft className="wrapper-content" isMapOpen={address.isMapOpen} isSearched={address.searchedZidCode}>
         <Logo className="logoSvg" />
-
+        
         {address.searchedZidCode && !address.isMapOpen && 
           <>
             <ButtonBack onClick={handleInitialPage}>
@@ -54,6 +58,8 @@ const Search  = ({
             handleSubmit={handleSubmit}
             goInitialPage={handleInitialPage}
             handleGoBack={handleGoBack}
+            handlecloseLoadingMap={handlecloseLoadingMap}
+            handleCloseNotification={handleCloseNotification}
             />
         </WrapperForm>
       </WrapperLeft>
@@ -61,7 +67,7 @@ const Search  = ({
       {!address.isMapOpen && 
       <MapImage src={Illustration} alt="CepJá!" />
       }
-      <Footer />
+      <Footer searchedZidCode={address.searchedZidCode} isMapOpen={address.isMapOpen}  />
     </Container>
   )
 }
@@ -80,7 +86,7 @@ const mapDispatchToProps = (dispatch) => ({
   handleInitialPage: (e) => {
     dispatch(goInitialPage())
   },
-  handleOpenMap: (cep, index) => (e) => {
+  handleOpenMap: (cep) => (e) => {
     dispatch(openMap(cep))
   },
   handleGoBack:  (e) => {
@@ -92,6 +98,12 @@ const mapDispatchToProps = (dispatch) => ({
       ufID = e.target.value.slice(2)
     }
     dispatch(populateCity(ufID))
+  },
+  handlecloseLoadingMap: (e) => {
+    dispatch(closeLoadingMap());
+  },
+  handleCloseNotification: (e) => {
+    dispatch(closeNotification());
   }
 });
 

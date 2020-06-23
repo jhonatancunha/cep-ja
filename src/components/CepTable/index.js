@@ -12,7 +12,6 @@ const CepTable =  ({
   handleOpenMap
 }) => (
   <>
-  {console.log(data)}
     { data.address.map((city, index) => 
       <Wrapper key={city.cep}>
         <Paragraph>
@@ -38,10 +37,6 @@ const CepTable =  ({
         <Paragraph>
           <SpanCEP>ESTADO:</SpanCEP>
           {city.uf}
-        </Paragraph>
-        <Paragraph>
-          <SpanCEP>DDD:</SpanCEP>
-          {city.ddd}
         </Paragraph>
         <Paragraph>
           <SpanCEP>IBGE:</SpanCEP>

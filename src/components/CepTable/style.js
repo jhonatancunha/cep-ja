@@ -6,6 +6,12 @@ export const Wrapper = styled.div`
   margin-top: 20px;
   width: 100%;
   margin-bottom: 20px;
+
+  /* TELA PEQUENA */
+  @media (max-height: 450px){
+    font-size: 0.8em;
+  }
+
 `
 
 export const Paragraph = styled.p`
@@ -16,6 +22,11 @@ export const Paragraph = styled.p`
 
   @media (max-width: 600px){
     height: 30px;
+  }
+
+  /* TELA PEQUENA */
+  @media (max-height: 450px){
+    height:  20px;
   }
 `
 

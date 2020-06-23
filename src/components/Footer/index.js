@@ -10,8 +10,8 @@ import {ReactComponent as Github} from '../../assets/github.svg'
 const faceLink = 'https://www.facebook.com/jhonatan.cunha.9/';
 const gitLink = 'https://github.com/jhonatancunha';
 
-export default () => (
-  <Wrapper>
+export default ({searchedZidCode, isMapOpen}) => (
+  <Wrapper searchedZidCode={searchedZidCode} isMapOpen={isMapOpen}>
     <Span>
       ©
     </Span>

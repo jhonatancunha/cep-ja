@@ -5,28 +5,34 @@ import Map from '../Maps'
 import InputFindCep from '../InputFindCep'
 import CepTable from '../CepTable'
 import Loading from '../commom/Loading'
+import CardInformation from '../commom/Error'
 
 // STYLES
-import { Wrapper, ButtonRed, LoadDIV, Span, LoadDivMap } from './style'
+import { Wrapper, ButtonRed, LoadDIV, Span, LoadDivMap, ExitLoadingMap } from './style'
 
 // ICONS
 import {ReactComponent as ArrowLeft} from '../../assets/arrow-left.svg'
+import { ReactComponent as WarningIcon } from '../../assets/warning.svg'
+import { ReactComponent as ErrorIcon } from '../../assets/error.svg'
 
 const Search = ({
   city,
   erro,
-  handleSubmit,
-  handlepopulateCity,
   latitude,
   longitude,
   isLoading,
   searchedZidCode,
-  handleOpenMap,
   isMapOpen,
+  mapisLoading,
+  mapError,
   handleGoBack,
-  mapisLoading
+  handleSubmit,
+  handlepopulateCity,
+  handleOpenMap,
+  handlecloseLoadingMap,
+  handleCloseNotification
 }) => (
-  <Wrapper>
+  <Wrapper searchedZidCode={searchedZidCode}>
     
     {!searchedZidCode && 
       <InputFindCep 
@@ -40,6 +46,7 @@ const Search = ({
     {isLoading && 
     <LoadDIV>
       <Span>Carregando</Span><Loading />
+      
     </LoadDIV>
     }
     
@@ -50,12 +57,30 @@ const Search = ({
     {mapisLoading &&
       <LoadDivMap>
         <Span>Carregando mapa</Span><Loading />
+        <ExitLoadingMap onClick={handlecloseLoadingMap}>⨯</ExitLoadingMap>
       </LoadDivMap>
     }
 
-    {erro && 
-      <div>CEP não encontrado.</div>
-    }
+    {/* NOTIFICAÇÃO DE ERRO */}
+    <CardInformation
+      action={handleCloseNotification}
+      status={erro}
+      title="ATENÇÃO!" 
+      description="CEP ou endereço inválido, verifique a informação digitada!" 
+      color="#F0D43A" 
+      Icon={WarningIcon}
+    />
+    
+    <CardInformation
+        action={handleCloseNotification}
+        status={mapError}
+        title="OOOPS!!! Error..." 
+        description="Mapa não pode ser carregado por falta de informações..." 
+        color="#D42627" 
+        Icon={ErrorIcon}
+    />
+
+
     
     {isMapOpen  &&
     <>

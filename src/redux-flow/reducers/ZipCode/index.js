@@ -8,12 +8,12 @@ export const initialState = {
  
   longitude: 0,
   latitude: 0,
- 
   isLoading: false,
   searchedZidCode: false,
-  
+  erro: false,
   isMapOpen: false,
-  mapisLoading: false
+  mapisLoading: false,
+  mapError: false
 }
 
 const ZipCode = createReducer(initialState, {
@@ -26,11 +26,13 @@ const ZipCode = createReducer(initialState, {
     ...state,
     address: action.payload,
     isLoading: false,
-    searchedZidCode: true
+    searchedZidCode: true,
+    erro: false,
+    mapError: false,
   }),
   [GOBACK]: (state, action) => ({
     ...state,
-    isMapOpen: false,
+    ...action.payload
   }),
   [BACKINITIALPAGE]: (state, action) => ({
     searchedZidCode: false,

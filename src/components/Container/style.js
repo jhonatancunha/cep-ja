@@ -16,6 +16,10 @@ export const Container = styled.div`
     }
   }
   
+  @media(max-height: 450px){
+    margin-top: 20px;
+  }
+    
   /* MOBILE */
   @media (max-width: 870px){
     flex-direction: column;
@@ -33,7 +37,6 @@ export const Container = styled.div`
    /* SUMIR QUANDO TECLADO ABRIR */
    @media (max-height: 869px){
       img{
-        /* display: none; */
         height: 30%;
       }
     }
@@ -48,24 +51,35 @@ export const Container = styled.div`
 export const WrapperLeft = styled.div`
    .logoSvg{
     max-width: 100vw;
+    margin-left: ${props => props.isSearched ? '-160px' : '0'};
     /* DESKTOP */
     @media (min-width: 810px){
       height: ${props => props.isSearched ? '70px' : '250px'};
       margin-top: ${props => props.isSearched ? '-10px' : ''};
-      margin-left: ${props => props.isSearched ? '-160px' : '0'};
     }
 
     /* MOBILE */
     @media (max-width: 809px){
       height: ${props => props.isMapOpen ? '70px' : '200px'};
       margin-top: ${props => props.isMapOpen ? '40px' : '30px;'};
-      margin-left: ${props => props.isMapOpen ? '-160px' : '0'};
-
     }
 
     @media (max-width: 550px){
       height: ${props => props.isMapOpen ? '70px' : '100px'};
       margin-left: 0px;
+    }
+
+    /* TECLADO ABRIR */
+    @media (max-height: 320px){
+      height: 60px;
+    }
+
+    /* TECLADO ABRIR E PESQUISADO */
+    @media (max-height: 450px){
+      display: ${props => props.isSearched || props.isMapOpen ? 'none' : 'block'}
+    }
+    @media (max-height: 530px){
+      display: ${props =>  props.isMapOpen ? 'none' : 'block'}
     }
   }
 `

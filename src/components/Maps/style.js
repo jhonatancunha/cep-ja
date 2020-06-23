@@ -13,4 +13,10 @@ export const WrapperMap = styled.div`
   @media (max-width: 450px){
     left: 20px;
   }
+
+  @media (max-height: 530px){
+    top: 50px;
+    width: 90vw;
+    height: 70vh;
+  }
 `

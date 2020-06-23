@@ -8,14 +8,10 @@ export const Wrapper = styled.div`
     /* DESKTOP */
     @media (max-width: 809px){
       width: 80vw;
-      max-height: calc(100vh - 410px);
-      overflow-y: scroll;
+      min-height: 61vh;
+      overflow-y: ${props => props.searchedZidCode ? 'scroll' : 'none'};
       margin-top: 20px;
-    }
-
-    @media (max-width: 550px){
-      max-height: 55vh;
-    }
+    }    
 `
 
 export const ButtonRed = styled.button`
@@ -37,16 +33,11 @@ cursor: pointer;
   position: ${props => props.isMapOpen ? 'absolute' : ''};
   top: ${props => props.isMapOpen ? '50px' : '0'};
   left: ${props => props.isMapOpen ? '50px' : '0'};
-  width: ${props => props.isMapOpen ? '55px' : 'calc(100%)'};
+  width: ${props => props.isMapOpen ? '55px' : '100%'};
   height: 50px;
 
   svg{
     height: 20px;
-  }
-  
-  /* MOBILE */
-  @media (max-width: 809px){
-    width: ${props => props.isMapOpen ? '55px' : '100%'};
   }
 
   /* DESKTOP */
@@ -65,6 +56,13 @@ cursor: pointer;
       }
     }
   }
+
+  /* CELULAR TELA PEQUENA */
+  @media (max-height: 530px){
+    top: ${props => props.isMapOpen ? '10px' : '0'};
+    left: ${props => props.isMapOpen ? '10px' : '0'};
+  }
+
 `
 
 export const ButtonBack = styled(ButtonRed)`
@@ -98,4 +96,14 @@ export const LoadDivMap = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 1.5em;
+`
+export const ExitLoadingMap = styled.button`
+  cursor: pointer;
+  border: 0;
+  background: transparent;
+  color: #f2f1f1;
+  font-size: 2em;
+  position: absolute;
+  top: 0px;
+  left: 10px;
 `

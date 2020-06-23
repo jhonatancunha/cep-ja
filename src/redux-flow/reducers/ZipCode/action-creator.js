@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { SUCESS, LOADING, BACKINITIALPAGE, LOADMAP, GOBACK, ERROR } from './actions'
 
-export const fetchAddress = (inputValue, uf, city) => async (dispatch, getState) => {
+export const fetchAddress = (inputValue, uf, city) => async (dispatch) => {
 
   var request = '';
  
@@ -17,8 +17,8 @@ export const fetchAddress = (inputValue, uf, city) => async (dispatch, getState)
   try{
     const response = await axios.get(`https://viacep.com.br/ws/${request}/json/`)
     var dataCEP = response.data
-    
-    if(dataCEP.erro){
+
+    if(dataCEP.erro || dataCEP.length === 0){
       throw new Error('cep invalido');
     }
 
@@ -32,11 +32,11 @@ export const fetchAddress = (inputValue, uf, city) => async (dispatch, getState)
     }));
 
   }catch(err){
-
     dispatch({
       type: ERROR,
       payload: {
         isLoading: false,
+        erro: true
       }
     })
   }
@@ -47,41 +47,69 @@ export const goInitialPage = (e) => (dispatch) => {
   dispatch({type: BACKINITIALPAGE})
 }
 
-export const openMap = (cep) => async (dispatch) => {
-  dispatch({ 
-    type: LOADMAP,
-    payload: {
-      mapisLoading: true,
-    }
-  })
+export const openMap = (cep) => async (dispatch, getState) => {
+  try{
+    dispatch({ 
+      type: LOADMAP,
+      payload: {
+        mapisLoading: true,
+      }
+    })
 
-  //PEGANDO DADOS DE LATITUDE E LONGITUDE
-  // const response = await axios.get(`https://cors-anywhere.herokuapp.com///www.cepaberto.com/api/v3/cep?cep=${cep}`,  {
-  //   headers: {
-  //     'Access-Control-Allow-Origin': '*',
-  //     'Authorization': 'Token token=30f76acb42943021eca2ad1dd02a8854'
-  //   }
-  // });
-
-  //API DE GEOLOCALIZAÇÃO MAIS RAPIDA
-  const response = await axios.get(`
-  https://nominatim.openstreetmap.org/search?street=${cep[0]}&country=brazil&state=%${cep[1]}&city=${cep[2]}&format=json
-  `)
-  const {lat, lon} = response.data[0];
-  
-  dispatch({
-    type: LOADMAP,
-    payload: {
-      latitude: lat,
-      longitude: lon,
-      isMapOpen: true,
-      mapisLoading: false,
+    //API DE GEOLOCALIZAÇÃO MAIS RAPIDA
+    const response = await axios.get(`
+    https://nominatim.openstreetmap.org/search?street=${cep[0]}&country=brazil&state=%${cep[1]}&city=${cep[2]}&format=json
+    `)
+    const {lat, lon} = response.data[0];
+    
+    //SE USUARIO FECHAR JANELA NÃO MOSTRA MAPA
+    if(getState().address.mapisLoading){
+      dispatch({
+        type: LOADMAP,
+        payload: {
+          latitude: lat,
+          longitude: lon,
+          isMapOpen: true,
+          mapisLoading: false,
+        }
+      })
     }
-  })
+  }catch(err){
+    dispatch({
+      type: ERROR,
+      payload: {
+        mapisLoading: false,
+        mapError: true,
+        isMapOpen: false,
+      }
+    })
+  }
 
 }
 
 export const goBack = (e) => (dispatch) => {
-  dispatch({ type: GOBACK })
+  dispatch({ 
+    type: GOBACK,
+    payload: {
+      isMapOpen: false,
+    }})
 }
 
+export const closeLoadingMap = (e) => (dispatch) => {
+  dispatch({
+    type: GOBACK,
+    payload: {
+      mapisLoading: false
+    }
+  })
+}
+
+export const closeNotification = (e) => (dispatch) => {
+  dispatch({
+    type: GOBACK,
+    payload: {
+      erro: false,
+      mapError: false
+    }
+  })
+}

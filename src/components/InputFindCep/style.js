@@ -19,10 +19,7 @@ export const Wrapper = styled.form`
     display: flex;
     margin-bottom: 10px;
   }
-  
-  
 `
-
 
 export const Button = styled.button`
   background: #D42627;
@@ -30,7 +27,7 @@ export const Button = styled.button`
   padding: 5px;
   border-radius: 4px 0px 0px 4px;
   cursor: pointer;
-  width: 80px;
+  width: 82px;
 
   svg{
     height: 28px;
@@ -46,7 +43,7 @@ export const Button = styled.button`
 
 export const Input = styled.input`
   background: #F2F1F1;
-  padding: 15px;
+  padding: 15px 0 15px 15px;
   font-size: 1rem;
   color: #18181A;
   border-radius: 0px 4px 4px 0px;
@@ -76,6 +73,5 @@ export const Title = styled.div`
   span{
     color: #F2F1F1;
     font-weight: bold;
-    padding: 5px;
   }
   `
