@@ -62,7 +62,8 @@ export const openMap = (cep) => async (dispatch, getState) => {
     https://nominatim.openstreetmap.org/search?street=${cep[0]}&country=brazil&state=%${cep[1]}&city=${cep[2]}&format=json
     `)
     const {lat, lon} = response.data[0];
-    console.log('reuiquicao 1', response.data)
+    
+
     //SE USUARIO FECHAR JANELA NÃO MOSTRA MAPA
     if(getState().address.mapisLoading){
       dispatch({
@@ -77,7 +78,7 @@ export const openMap = (cep) => async (dispatch, getState) => {
     }
   }catch(err){
     try{
-    console.log('requisicao 2')
+
     //PEGANDO DADOS DE LATITUDE E LONGITUDE
     const response2 = await axios.get(`https://cors-anywhere.herokuapp.com///www.cepaberto.com/api/v3/cep?cep=${cep[3].replace('-','')}`,  {
       headers: {
@@ -85,7 +86,7 @@ export const openMap = (cep) => async (dispatch, getState) => {
         'Authorization': 'Token token=30f76acb42943021eca2ad1dd02a8854'
       }
     });
-    console.log(response2.data)
+    
     if(getState().address.mapisLoading){
       dispatch({
         type: LOADMAP,

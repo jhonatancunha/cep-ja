@@ -16,7 +16,6 @@ const Map = ({longitude, latitude}) => {
 
   return (
     <WrapperMap>
-    {console.log(latitude, longitude)}
         <ReactMapGL
           mapStyle="mapbox://styles/jhonatancunha1/ckbidrmem1anr1iqhj66rptq3"
           {...viewport}
