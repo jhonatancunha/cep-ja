@@ -64,6 +64,7 @@ export const openMap = (cep) => async (dispatch, getState) => {
     const {lat, lon} = response.data[0];
     
 
+
     //SE USUARIO FECHAR JANELA NÃO MOSTRA MAPA
     if(getState().address.mapisLoading){
       dispatch({
@@ -87,6 +88,8 @@ export const openMap = (cep) => async (dispatch, getState) => {
       }
     });
     
+
+
     if(getState().address.mapisLoading){
       dispatch({
         type: LOADMAP,

@@ -1,68 +1,92 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+<h1 align="center">:pushpin: CepJá - Consulta de CEP<h1>
+<p align="center">
+<img src="https://img.shields.io/github/repo-size/jhonatancunha/cep-ja" alt="">
+<img src="https://img.shields.io/github/license/jhonatancunha/cep-ja" alt="">
+<img src="https://img.shields.io/github/last-commit/jhonatancunha/cep-ja" alt="">
+<img alt="Netlify" src="https://img.shields.io/netlify/87c6609a-fb3f-47c6-87d7-83f4922ef4ca?style=plastic">
+</p>
 
-In the project directory, you can run:
+<br>
 
-### `yarn start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## :ballot_box_with_check: Demo Live
+- [Netlify - Clique Aqui](https://cepja.netlify.app/)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## :bookmark: Sobre
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<p align="center">
+    Aplicativo de busca e consulta de todos os CEPS do Brasil, permitindo sua visualização em mapa. Busca permitida via cidade, municio e logradouro, ou somente via cep diretamente. 
+</p>
 
-### `yarn build`
+<br>
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# :computer: Web View
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## :house: Index Page
+<p align="center">
+    <img src="img/web.png" alt="CepJá">
+</p>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## :floppy_disk: Information Page
+<p align="center">
+    <img src="img/web3.png" alt="CepJá">
+</p>
 
-### `yarn eject`
+## :earth_americas: Map Page
+<p align="center">
+    <img src="img/web2.png" alt="CepJá">
+</p>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# :iphone: Mobile View
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<table align="center">
+    <tr>
+        <td><img src="img/mob.png" alt=""></td>
+        <td><img src="img/mob2.png" alt=""></td>
+        <td><img src="img/mob3.png" alt=""></td>
+    </tr>
+ </table>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## 🚀 Tecnologias
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [ReactJS](https://pt-br.reactjs.org/)
+- [Redux](https://redux.js.org/)
+- [Create React App](https://pt-br.reactjs.org/docs/create-a-new-react-app.html)
+- [Styled-Components](https://styled-components.com/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## ❓ Como utilizar?
 
-### Code Splitting
+```bash
+$ cd cep-ja
+$ yarn
+$ yarn start
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## :octocat: Como contribuir?
 
-### Analyzing the Bundle Size
+```bash
+$ git clone https://github.com/jhonatancunha/cep-ja.git
+$ git checkout -b contribution-branch
+$ git commit -m "My changes"
+$ git push origin contribution-branch
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+# :ballot_box_with_check: Icons
 
-### Making a Progressive Web App
+- [Search Icon](https://www.flaticon.com/free-icon/magnifying-glass_1086933?term=search&page=1&position=40)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+- [Pin Icon](https://www.flaticon.com/free-icon/pin_787552?term=pin&page=2&position=57)
 
-### Advanced Configuration
+- [Error Icon](https://www.flaticon.com/free-icon/siren_3068213?term=warning&page=1&position=34)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+- [Arrow Icon](https://www.flaticon.com/free-icon/right-arrow_271226?term=ARROW&page=1&position=1)
 
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- [GPS Illustration](https://www.freepik.com/free-vector/smartphone-with-gps-navigation-app_5151545.htm)
+  
+<p align="center">
+Made with :coffee: por :copyright: Jhonatan Cunha.
+</p>
