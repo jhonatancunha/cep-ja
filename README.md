@@ -31,12 +31,12 @@
 
 ## :floppy_disk: Information Page
 <p align="center">
-    <img src="img/web3.png" alt="CepJá">
+    <img src="img/web2.png" alt="CepJá">
 </p>
 
 ## :earth_americas: Map Page
 <p align="center">
-    <img src="img/web2.png" alt="CepJá">
+    <img src="img/web3.png" alt="CepJá">
 </p>
 
 # :iphone: Mobile View
