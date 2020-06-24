@@ -4,7 +4,7 @@
 <img src="https://img.shields.io/github/repo-size/jhonatancunha/cep-ja" alt="">
 <img src="https://img.shields.io/github/license/jhonatancunha/cep-ja" alt="">
 <img src="https://img.shields.io/github/last-commit/jhonatancunha/cep-ja" alt="">
-<img alt="Netlify" src="https://img.shields.io/netlify/87c6609a-fb3f-47c6-87d7-83f4922ef4ca?style=plastic">
+<img alt="Netlify" src="https://img.shields.io/netlify/8024a7c2-ebd2-46fa-afd1-bb4c2f9b638b?style=plastic">
 </p>
 
 <br>
